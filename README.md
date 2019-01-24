@@ -24,3 +24,11 @@ about the diffs.  Each diff in the series is requred to make one
 logical, atomic change.  When a new Linux version was released, you
 were required to redo the patch series by applying it to the new
 version and update any mismatches.  This is exactly like rebasing.
+
+### Commit messages
+
+I'll just copy from the "git commit" man page:
+
+> it’s a good idea to begin the commit message with a single short
+> (less than 50 character) line summarizing the change, followed by a
+> blank line and then a more thorough description.
