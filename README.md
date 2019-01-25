@@ -32,3 +32,22 @@ I'll just copy from the "git commit" man page:
 > it’s a good idea to begin the commit message with a single short
 > (less than 50 character) line summarizing the change, followed by a
 > blank line and then a more thorough description.
+
+### Why rewrite pull requests?
+
+It's not just for fun, rewriting your pull request have actual
+benefits.
+
+- It's easier to review a pull request that consists of small atomic
+  commits.  Perhaps more importantly, sometimes a a bug appears and
+  someone else has to go back and look at your commits to understand
+  their intent.
+
+- If branch goes out of sync with the upstream master, rebasing it
+  will make it possible to a fast-forward merge.  This makes for a
+  linear history which is easier to understand than a history which
+  branches and joins in several parallel arcs.
+
+- Sometimes a change needs to be backed out.  If the commit does
+  several unrelated things, a simple revert operation removes
+  everything.
