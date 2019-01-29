@@ -56,3 +56,46 @@ I'll just copy from the "git commit" man page:
 > it’s a good idea to begin the commit message with a single short
 > (less than 50 character) line summarizing the change, followed by a
 > blank line and then a more thorough description.
+
+### Reorder commits
+
+This is easy with interactive rebasing: `git rebase -i master`.  This
+will bring up your editor with text like this, plus some help text:
+
+```
+pick 1234567 Commit 1.
+pick 89abcde Commit 2.
+pick 6c437ee Commit 3.
+```
+
+This is the Swiss army knife of git.  Each line is a command in git's
+special rebase command language.  Each command will be applied in
+top-down order to the base commit of the rebase, `master` in this
+example.  Here we see `pick` which just adds a commit to the branch.
+To reorder the commits, just reorder the lines as you see fit.  Then
+save the file and exit the editor.
+
+If the commits overlap, there will be merge conflicts.  Git will
+announce this and stop for you to fix the conflict.  To do this, you
+edit the files and stage them.  To proceed with the rebase, type `git
+rebase --continue`.
+
+### Squash commits
+
+Merging two or more commits into one is called "squashing".  This can
+also be done with `rebase -i`.  If, say, commit 3 is to be squashed
+into commit 1, edit the text to say
+
+```
+pick 1234567 Commit 1.
+squash 6c437ee Commit 3.
+pick 89abcde Commit 2.
+```
+
+When git has finished, there will only be commit 1 and commit 3 left,
+but the first will include the changes from commit 2.
+
+You will have the option of editing the commit message, merging text
+from both commits.  If this is not necessary, you can use `fixup`
+instead of `squash`.  The commit message of the fixup commit will be
+discarded.
