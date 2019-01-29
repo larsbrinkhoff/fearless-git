@@ -44,6 +44,11 @@ benefits.
   several unrelated things, a simple revert operation removes
   everything.
 
+- It's generally accepted that code should be clean and readable.
+  Just extend the notion to the time dimension.  Changes should be
+  readable too.  Avoid spaghetti history like you would spaghetti
+  code.
+
 ### Commit messages
 
 I'll just copy from the "git commit" man page:
