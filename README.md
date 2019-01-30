@@ -1,5 +1,18 @@
 # Fearless Git
 
+### Table of contents
+
+1. [About](#about)
+2. [A little bit of background](#a-little-bit-of-background)
+3. [Why rewrite pull requests?](#why-rewrite-pull-requests)
+4. [Keep in sync with upstream](#keep-in-sync-with-upstream)
+5. [Commit messages](#commit-messages)
+6. [If you mess up, don't panic](#if-you-mess-up-dont-panic)
+7. [Edit a single commit](#edit-a-single-commit)
+8. [Reorder commits](#reorder-commits)
+9. [Squash commits](#squash-commits)
+10. [Split commits](#split-commits)
+
 ### About
 
 This will be a random collection of git tips and tricks from the
