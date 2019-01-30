@@ -54,7 +54,7 @@ benefits.
 I recommend never adding any commits to the master branch.  Always
 make a new branch for new features or bug fixes.
 
-Before you make a new branch, it's a good idea to upcdate your
+Before you make a new branch, it's a good idea to update your
 repository from upstream.  Do a `git fetch` to bring in new commits,
 check out your local master branch, and the `git merge --ff-only
 origin/master`.
