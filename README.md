@@ -99,3 +99,42 @@ You will have the option of editing the commit message, merging text
 from both commits.  If this is not necessary, you can use `fixup`
 instead of `squash`.  The commit message of the fixup commit will be
 discarded.
+
+### Split commits
+
+Sometimes you make a commit and later want to split it in two.  If you
+want to split commit FOO, do an interactive rebase against the the
+commit two before it: `git rebase -i FOO~2`.  Your editor will display
+the commit immediately before FOO at the top, then FOO, and following
+commits if any:
+
+```
+pick QUUX Commit quux.
+pick FOO Commit foo.
+pick BAR Commit bar.
+pick BAZ Commit baz.
+```
+
+Edit this to look like
+
+```
+edit QUUX Commit quux.
+pick FOO Commit foo.
+pick BAR Commit bar.
+pick BAZ Commit baz.
+```
+
+This instructs git we want to make a change to a commit.  When you
+exit the editor, git will stop at commit QUUX and let you edit the
+files.  Note at this point we're immediately before FOO which we want
+to split.
+
+Now type `git checkout -p FOO` to make a **partial** check out.  If
+you want just one particular file, type `git checkout -p FOO --
+filename`.  Git will present you with a series of questions whether
+you want a particular diff applied or not.  Answer `y` or `n` as
+appropriate, or `s` to split a diff in even smaller parts.
+
+When this is finished, you will have staged the changes.  Commit this,
+and continue the rebase operation.  Git will see that FOO already has
+the changes you split off, so it will not complain.
