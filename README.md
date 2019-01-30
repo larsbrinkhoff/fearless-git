@@ -1,5 +1,7 @@
 # Fearless Git
 
+Learn to love interactive rebasing in a handful of easy steps!
+
 ### Table of contents
 
 1. [About](#about)
