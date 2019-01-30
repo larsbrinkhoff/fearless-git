@@ -189,3 +189,8 @@ appropriate, or `s` to split a diff in even smaller parts.
 When this is finished, you will have staged the changes.  Commit this,
 and continue the rebase operation.  Git will see that FOO already has
 the changes you split off, so it will not complain.
+
+### Update your pull request
+
+With GitHub or GitLab, you can just do `git push -f` to forcibly push
+your branch and update the pull request.
