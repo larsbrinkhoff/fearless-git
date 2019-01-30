@@ -49,6 +49,23 @@ benefits.
   readable too.  Avoid spaghetti history like you would spaghetti
   code.
 
+### Keep in sync with upstream
+
+I recommend never adding any commits to the master branch.  Always
+make a new branch for new features or bug fixes.
+
+Before you make a new branch, it's a good idea to upcdate your
+repository from upstream.  Do a `git fetch` to bring in new commits,
+check out your local master branch, and the `git merge --ff-only
+origin/master`.
+
+Sometimes, there can be two remote repositories: your own copy, and
+the upstream repository to which you will post pull requests.  I have
+my own remote as `origin` and the other I call `upstream`.  I fetch
+from upstream to update the local master branch, and then I push this
+to `origin`.  This way, my local and remote mater always tracks the
+upstream.
+
 ### Commit messages
 
 I'll just copy from the "git commit" man page:
