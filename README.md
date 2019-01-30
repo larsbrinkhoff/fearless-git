@@ -85,10 +85,33 @@ feel things aren't coming together like you wish.  Don't worry, most
 of the time you can type `git rebase --abort` to reset back to before
 the operation.  Reconsider your plan and start over.
 
+### Edit a single commit
+
+To update the very latest commit, just stange your changes and type
+`git commit --amend -C HEAD`.  Amending means to add changes to an
+existing commit, and `-C HEAD` is used to keep the commit message as
+is.
+
+To update another commit, do `git rebase -i FOO~`, where FOO is that
+commit.  It can be a hexadecimal commit ID, or a revision like
+`HEAD~3` to select a commit relative to the current head.  This will
+bring up your editor with text like this, plus some help text:
+
+```
+pick 1234567 Commit 1.
+pick 89abcde Commit 2.
+pick 6c437ee Commit 3.
+```
+
+One the line indicating the commit you want to edit, change `pick` to
+`edit`.  When you exit the editor, git will start a rebase operating
+and stop at that commit.  Now you can amend the commit like described
+above.  When done, type `git rebase --continue`.
+
 ### Reorder commits
 
-This is easy with interactive rebasing: `git rebase -i master`.  This
-will bring up your editor with text like this, plus some help text:
+This is easy with interactive rebasing.  Type `git rebase -i master`.
+This will offer up all commits on your branch:
 
 ```
 pick 1234567 Commit 1.
