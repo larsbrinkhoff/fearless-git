@@ -6,6 +6,10 @@ This will be a random collection of git tips and tricks from the
 trenches.  It will explain the nitty gritty of rewriting branch
 history to make clean pull requests.
 
+It's not a substitute for reading the git documentation.  The reader
+is supposed to know the basics of git, and to be able to look up
+details about git commands in the manual pages.
+
 ### A Little Bit Of Background
 
 Git was made by Linus Torvalds for managing Linux source code.  I
