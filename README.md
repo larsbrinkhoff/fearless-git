@@ -78,6 +78,13 @@ I'll just copy from the "git commit" man page:
 > (less than 50 character) line summarizing the change, followed by a
 > blank line and then a more thorough description.
 
+### If you mess up, don't panic
+
+Sometimes you're in the middle of a messy rewrite operation and you
+feel things aren't coming together like you wish.  Don't worry, most
+of the time you can type `git rebase --abort` to reset back to before
+the operation.  Reconsider your plan and start over.
+
 ### Reorder commits
 
 This is easy with interactive rebasing: `git rebase -i master`.  This
