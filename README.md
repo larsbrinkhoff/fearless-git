@@ -100,6 +100,13 @@ feel things aren't coming together like you wish.  Don't worry, most
 of the time you can type `git rebase --abort` to reset back to before
 the operation.  Reconsider your plan and start over.
 
+If you completed the rebase (or other operation) and have regrets, you
+can try the reflog.  This is a long log of every commit git recorded.
+Type `git reflog` and look at the top of the output.  If you want to
+go back to a previous good commit FOO, type `git reset --hard FOO`.
+**Warning:** this will overwrite files.  If you have any pending
+changes that are not committed, they will be lost.
+
 ### Edit a single commit
 
 To update the very latest commit, just stange your changes and type
