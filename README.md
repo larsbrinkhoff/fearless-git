@@ -212,6 +212,36 @@ When this is finished, you will have staged the changes.  Commit this,
 and continue the rebase operation.  Git will see that FOO already has
 the changes you split off, so it will not complain.
 
+### Move a change to an earlier commit
+
+Sometimes you commit some changes, and later want to move some change
+to an earlier commit instead.  Doing this is similar to splitting a
+commit described in the previous section.
+
+Do an interactive rebase against the the commit before the one you
+want to add to: `git rebase -i FOO~1`.  Your editor will display this:
+
+```
+pick FOO Commit foo.
+pick BAR Commit bar.
+pick BAZ Commit baz.
+```
+
+If you want to move something from BAZ to FOO, instruct git you want
+to edit FOO:
+
+```
+edit FOO Commit foo.
+pick BAR Commit bar.
+pick BAZ Commit baz.
+```
+
+Exit the editor.  Git will stop right after FOO and allow you to do
+edits.  Now type `git checkout -p BAZ`.  Like in *"Split commits"*
+above, you can pick and choose changes.  Say `y` those you want.  When
+done, your changes are in the staging area.  Now amend FOO: `git
+commit --amend -C HEAD`.  Continue and finish the rebase.
+
 ### Update your pull request
 
 With GitHub or GitLab, you can just do `git push -f` to forcibly push
