@@ -109,7 +109,7 @@ changes that are not committed, they will be lost.
 
 ### Edit a single commit
 
-To update the very latest commit, just stange your changes and type
+To update the very latest commit, just stage your changes and type
 `git commit --amend -C HEAD`.  Amending means to add changes to an
 existing commit, and `-C HEAD` is used to keep the commit message as
 is.
@@ -125,8 +125,8 @@ pick 89abcde Commit 2.
 pick 6c437ee Commit 3.
 ```
 
-One the line indicating the commit you want to edit, change `pick` to
-`edit`.  When you exit the editor, git will start a rebase operating
+On the line indicating the commit you want to edit, change `pick` to
+`edit`.  When you exit the editor, git will start a rebase operation
 and stop at that commit.  Now you can amend the commit like described
 above.  When done, type `git rebase --continue`.
 
